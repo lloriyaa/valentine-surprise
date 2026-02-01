@@ -363,15 +363,15 @@
             <div class="success-message">Thanksssss</div>
             
             <div class="success-decorations">
-                <img src="https://i.pinimg.com/originals/7e/72/7f/7e727ff988bee4fece24b899cfa6c7b3.png" alt="Heart" class="sparkle">
-                <img src="https://i.pinimg.com/originals/7e/72/7f/7e727ff988bee4fece24b899cfa6c7b3.png" alt="Bow" class="sparkle">
-                <img src="https://i.pinimg.com/originals/aa/ca/74/aaca743794ec2756cfa3c1a65f64a8d3.png" alt="Heart" class="sparkle">
+                <img src="https://i.pinimg.com/originals/fa/84/45/fa844573c657c3a588c864685d547cfd.png" alt="Heart">
+                <img src="https://i.pinimg.com/originals/7e/72/7f/7e727ff988bee4fece24b899cfa6c7b3.png" alt="Bow">
+                <img src="https://i.pinimg.com/originals/fa/84/45/fa844573c657c3a588c864685d547cfd.png" alt="Heart">
             </div>
             
-            <img src="https://i.pinimg.com/originals/6f/71/99/6f7199a8e94345ce32195990dc9fd122.png" alt="" class="sparkle">
+            <img src="https://i.pinimg.com/originals/fa/84/45/fa844573c657c3a588c864685d547cfd.png" alt="" class="sparkle">
             <img src="https://i.pinimg.com/originals/7e/72/7f/7e727ff988bee4fece24b899cfa6c7b3.png" alt="" class="sparkle">
             <img src="https://i.pinimg.com/originals/bb/8c/15/bb8c15047753b05c50f894571d5d3879.png" alt="" class="sparkle">
-            <img src="https://i.pinimg.com/originals/ac/a1/ec/aca1ec880b006a0b599b97e19b5e78e3.png" alt="" class="sparkle">
+            <img src="https://i.pinimg.com/originals/fa/84/45/fa844573c657c3a588c864685d547cfd.png" alt="" class="sparkle">
             <img src="https://i.pinimg.com/originals/7e/72/7f/7e727ff988bee4fece24b899cfa6c7b3.png" alt="" class="sparkle">
             <img src="https://i.pinimg.com/originals/bb/8c/15/bb8c15047753b05c50f894571d5d3879.png" alt="" class="sparkle">
         </div>
@@ -437,7 +437,28 @@
             }
         });
 
-        
+        // Create floating heart function
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            
+            const img = document.createElement('img');
+            const images = [
+                'https://i.pinimg.com/originals/fa/84/45/fa844573c657c3a588c864685d547cfd.png',
+                'https://i.pinimg.com/originals/7e/72/7f/7e727ff988bee4fece24b899cfa6c7b3.png',
+                'https://i.pinimg.com/originals/bb/8c/15/bb8c15047753b05c50f894571d5d3879.png'
+            ];
+            img.src = images[Math.floor(Math.random() * images.length)];
+            
+            heart.appendChild(img);
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
     </script>
 </body>
 </html>
